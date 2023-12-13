@@ -1,0 +1,82 @@
+////////////////////////////////////////
+// Local fonts
+////////////////////////////////////////
+
+//////////////////////////////////////// Variables
+
+// Montserrat
+// 100: 'Montserrat-Thin'
+// 200: 'Montserrat-ExtraLight'
+// 300: 'Montserrat-Light'
+// 400: 'Montserrat-Regular'
+// 500: 'Montserrat-Medium'
+// 600: 'Montserrat-SemiBold'
+// 700: 'Montserrat-Bold'
+// 800: 'Montserrat-ExtraBold'
+// 900: 'Montserrat-Black'
+$montserrat: (400: 'Montserrat-Regular', 600: 'Montserrat-SemiBold')
+
+// Montserrat Italic
+// 100: 'Montserrat-ThinItalc'
+// 200: 'Montserrat-ExtraLightItalc'
+// 300: 'Montserrat-LightItalc'
+// 400: 'Montserrat-Italc'
+// 500: 'Montserrat-MediumItalc'
+// 600: 'Montserrat-SemiBoldItalc'
+// 700: 'Montserrat-BoldItalc'
+// 800: 'Montserrat-ExtraBoldItalc'
+// 900: 'Montserrat-BlackItalc'
+// $montserrat-italic: (300: 'Montserrat-LightItalic', 400: 'Montserrat-Italic', 600: 'Montserrat-SemiBoldItalic', 800: 'Montserrat-BoldItalic')
+
+// RumRaisin
+// 400: 'RumRaisin-Regular'
+$rumraisin: (400: 'RumRaisin-Regular')
+
+// Quicksand
+// 300: 'Quicksand-Light'
+// 400: 'Quicksand-Regular'
+// 500: 'Quicksand-Medium'
+// 600: 'Quicksand-SemiBold'
+// 700: 'Quicksand-Bold'
+$quicksand: (500: 'Quicksand-Medium', 700: 'Quicksand-Bold')
+
+
+//////////////////////////////////////// Mixins and functions
+
+=font-face ($font-family, $font-style, $font-weight, $dir-name, $file-name)
+  font-family: $font-family
+  font-style: $font-style
+  font-weight: $font-weight
+  src: url('../fonts/#{$dir-name}/#{$file-name}.woff') format('woff'), url('../fonts/#{$dir-name}/#{$file-name}.woff2') format('woff2')
+
+
+//////////////////////////////////////// Styles
+
+// Montserrat
+@each $font-weight, $file-name in $montserrat
+  @font-face
+    +font-face($font-family: 'Montserrat', $font-style: normal, $font-weight: $font-weight, $dir-name: 'Montserrat', $file-name: $file-name)
+
+// Montserrat Italic
+// @each $font-weight, $file-name in $montserrat
+//   @font-face
+//     +font-face($font-family: 'Montserrat', $font-style: italic, $font-weight: $font-weight, $dir-name: 'Montserrat', $file-name: $file-name)
+
+// RumRaisin
+@each $font-weight, $file-name in $rumraisin
+  @font-face
+    +font-face($font-family: 'RumRaisin', $font-style: normal, $font-weight: $font-weight, $dir-name: 'RumRaisin', $file-name: $file-name)
+
+// Quicksand
+@each $font-weight, $file-name in $quicksand
+  @font-face
+    +font-face($font-family: 'Quicksand', $font-style: normal, $font-weight: $font-weight, $dir-name: 'Quicksand', $file-name: $file-name)
+
+
+
+// Icons
+@font-face
+  font-family: 'icons'
+  src: url("../fonts/icons/icons.woff") format("woff"), url("../fonts/icons/icons.ttf") format("truetype"), url("../fonts/icons/icons.svg") format("svg")
+  font-weight: normal
+  font-style: normal
