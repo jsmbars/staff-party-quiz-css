@@ -1,0 +1,57 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Timer
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".spq-timer"
+
+#{$block}
+  display: block
+  width: 100%
+
+  // $Timer MOD: theme christmas
+  &_theme_christmas
+
+
+  // $Timer text
+  &__text
+    display: block
+    width: 100%
+    font-family: $f-sans
+    font-size: 14px
+    line-height: 1
+    font-weight: 400
+    color: $c-white
+    text-align: center
+
+    // $Timer text CONTEXT: $Timer MOD: theme christmas
+    #{$block}_theme_christmas &
+      font-family: $f-sans-quicksand
+      font-size: 16px
+      font-weight: 500
+
+    +media-screen-min-xs
+      font-size: 16px
+
+      #{$block}_theme_christmas &
+        font-size: 18px
+
+
+  // $Timer text bold
+  &__text-bold
+    font-weight: 600
+
+    // $Timer text bold CONTEXT: $Timer MOD: theme christmas
+    #{$block}_theme_christmas &
+      font-weight: 700
+
+

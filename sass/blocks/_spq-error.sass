@@ -1,0 +1,95 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Error
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".spq-error"
+
+#{$block}
+  position: relative
+  display: block
+  width: auto
+  max-width: 100%
+  padding-left: 20px
+
+  &:before
+    content: '\e903'
+    position: absolute
+    top: 2px
+    left: 0
+    display: block
+    font-family: icons
+    font-size: 12px
+    line-height: 1
+    font-weight: 400
+    color: $c-red-medium
+    vertical-align: baseline
+
+  &:not(:last-child)
+    margin-bottom: 8px
+
+  // $Error MOD: type light
+  &_type_light
+    &:before
+      color: $c-white
+
+  // $Error MOD: theme christmas
+  &_theme_christmas
+    &:before
+      color: $c-christmas-red
+
+
+  // $Error text
+  &__text
+    display: block
+    width: 100%
+    font-family: $f-sans
+    font-size: 12px
+    line-height: 1.2
+    font-weight: 400
+    color: $c-red-medium
+
+    // $Error text CONTEXT: $Error MOD: type light
+    #{$block}_type_light &
+      color: $c-white
+
+    // $Error text CONTEXT: $Error MOD: theme christmas
+    #{$block}_theme_christmas &
+      font-family: $f-sans-quicksand
+      font-size: 12px
+      font-weight: 500
+      color: $c-christmas-red
+
+    +media-screen-min-xs
+      font-size: 14px
+
+      #{$block}_theme_christmas &
+        font-size: 14px
+
+
+  // $Error text line
+  &__text-line
+    display: block
+
+    &:not(:last-child)
+      margin-bottom: 2px
+
+
+  // $Error text bold
+  &__text-bold
+    font-weight: 600
+
+    // $Error text bold CONTEXT: $Error MOD: theme christmas
+    #{$block}_theme_christmas &
+      font-weight: 700
+
+
