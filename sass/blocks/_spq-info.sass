@@ -39,7 +39,7 @@ $block: ".spq-info"
     font-size: 32px
     line-height: 1.4
     font-weight: 600
-    color: $c-white
+    color: $c-gray-hyper-light
     text-align: center
 
     // $Info title CONTEXT: $Info MOD: theme christmas
@@ -66,7 +66,7 @@ $block: ".spq-info"
     font-size: 18px
     line-height: 1.4
     font-weight: 600
-    color: $c-white
+    color: $c-gray-hyper-light
     text-align: center
 
     // $Info subtitle CONTEXT: $Info MOD: theme christmas
@@ -93,7 +93,7 @@ $block: ".spq-info"
     font-size: 14px
     line-height: 1.2
     font-weight: 400
-    color: $c-white
+    color: $c-gray-hyper-light
     text-align: center
 
     // $Info text CONTEXT: $Info MOD: theme christmas
@@ -136,7 +136,10 @@ $block: ".spq-info"
 
   // $Info delimiter
   &__delimiter
-    display: block
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
     width: 100%
     text-align: center
 
@@ -146,7 +149,7 @@ $block: ".spq-info"
 
   // $Info delimiter dot
   &__delimiter-dot
-    display: inline-block
+    display: block
     width: 8px
     height: 8px
     border-radius: 50%
@@ -176,11 +179,11 @@ $block: ".spq-info"
 
 
     &:not(:last-child)
-      margin-right: 4px
+      margin-right: 8px
 
       +media-screen-min-xs
         #{$block}_theme_christmas &
-          margin-right: 8px
+          margin-right: 16px
 
 
   // $Info spinner
