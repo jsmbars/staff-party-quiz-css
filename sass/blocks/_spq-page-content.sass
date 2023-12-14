@@ -1,0 +1,169 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Page content
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".spq-page-content"
+
+#{$block}
+  display: block
+  width: 100%
+  height: 100%
+
+
+  // $Page content MOD: role prequiz
+  &_role_prequiz
+
+  // $Page content MOD: role question
+  &_role_question
+
+  // $Page content MOD: role question display
+  &_role_question-display
+
+  // $Page content MOD: role question answer
+  &_role_question-answer
+
+  // $Page content MOD: role pause
+  &_role_pause
+
+  // $Page content MOD: role round end
+  &_role_round-end
+
+  // $Page content MOD: role round end leaderboard
+  &_role_round-end-leaderboard
+
+  // $Page content MOD: role quiz end
+  &_role_quiz-end
+
+  // $Page content MOD: theme christmas
+  &_theme_christmas
+
+
+  // $Page content inner
+  &__inner
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: center
+    width: 100%
+    height: 100%
+    margin: 0 auto
+    padding: 12px 8px
+    overflow: hidden
+
+    +media-screen-min-xs
+      padding: 16px 12px
+
+    +media-screen-min-s-major
+      padding: 24px 20px
+
+
+  // $Page content panel
+  &__panel
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: center
+    width: 100%
+    height: 100%
+    background-color: $c-white
+    border-radius: 8px
+    overflow: hidden
+
+    // $Page content panel CONTEXT: $Page content MOD: theme christmas
+    #{$block}_theme_christmas &
+      background-image: url(../images/snowflakes-content.png)
+      background-attachment: fixed
+      background-position: center top
+      background-repeat: no-repeat
+      background-size: auto 90%
+
+
+  // $Page content scroll container
+  &__scroll
+    display: block
+    width: 100%
+    overflow-x: hidden
+    overflow-y: auto
+
+
+  // $Page content main
+  &__main
+    flex-grow: 1
+    flex-shrink: 1
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    width: 100%
+    height: 100%
+    overflow: hidden
+
+    // $Page content main CONTEXT: $Page content panel
+    #{$block}__panel > &
+      padding: 12px
+
+    +media-screen-min-xs
+      #{$block}__panel >  &
+        padding: 16px
+
+
+  // $Page content aside
+  &__aside
+    flex-grow: 0
+    flex-shrink: 0
+    display: block
+    width: 100%
+
+    &:first-child
+      #{$block}__inner > &
+        padding-bottom: 12px
+
+      +media-screen-min-xs
+        #{$block}__inner > &
+          padding-bottom: 16px
+
+    &:last-child
+      #{$block}__inner > &
+        padding-top: 12px
+
+      +media-screen-min-xs
+        #{$block}__inner > &
+          padding-top: 16px
+
+
+  // $Page content area
+  &__area
+    display: block
+    width: 100%
+    padding: 12px
+
+    +media-screen-min-xs
+      padding: 16px
+
+    // $Page content area MOD: role error
+    &_role_error
+      background-color: $c-red-hyper-light
+
+      // $Page content area MOD: role error CONTEXT: $Page content MOD: theme christmas
+      #{$block}_theme_christmas &
+        background-color: mix($c-white, $c-christmas-red, 90%)
+
+    // $Page content area MOD: role timer
+    &_role_timer
+      background-color: $c-red-medium
+
+      // $Page content area MOD: role timer CONTEXT: $Page content MOD: theme christmas
+      #{$block}_theme_christmas &
+        background-color: $c-christmas-red
+
+

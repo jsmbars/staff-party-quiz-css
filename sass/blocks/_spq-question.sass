@@ -1,0 +1,237 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Question
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".spq-question"
+
+#{$block}
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  align-items: center
+  width: 100%
+
+  // $Question MOD: type compact
+  &_type_compact
+
+  // $Question MOD: theme christmas
+  &_theme_christmas
+
+
+  // $Question image
+  &__image
+    display: block
+    width: auto
+    max-width: 100%
+    margin: 0 auto
+
+    // $Question image CONTEXT: $Question MOD: type compact
+    #{$block}_type_compact &
+      max-height: 120px
+
+    +media-screen-min-xs
+      #{$block}_type_compact &
+        max-height: 240px
+
+    +media-screen-min-s-major
+      #{$block}_type_compact &
+        max-height: 360px
+
+    &:not(:last-child)
+      margin-bottom: 16px
+
+      #{$block}_type_compact &
+        margin-bottom: 12px
+
+      +media-screen-min-xs
+        margin-bottom: 20px
+
+        #{$block}_type_compact &
+          margin-bottom: 16px
+
+
+  // $Question info
+  &__info
+    display: block
+    width: 100%
+
+    &:not(:last-child)
+      margin-bottom: 32px
+
+      #{$block}_type_compact &
+        margin-bottom: 24px
+
+      +media-screen-min-xs
+        margin-bottom: 40px
+
+        #{$block}_type_compact &
+          margin-bottom: 32px
+
+
+  // $Question title
+  &__title
+    display: block
+    width: 100%
+    font-family: $f-sans
+    font-size: 24px
+    line-height: 1.4
+    font-weight: 600
+    text-align: center
+    color: $c-gray-ultra-dark
+
+    // $Question title CONTEXT: $Question MOD: type compact
+    #{$block}_type_compact &
+      font-size: 20px
+
+    // $Question title CONTEXT: $Question MOD: theme christmas
+    #{$block}_theme_christmas &
+      font-family: $f-sans-quicksand
+      font-weight: 700
+
+    +media-screen-min-xs
+      font-size: 32px
+
+      #{$block}_type_compact &
+        font-size: 24px
+
+    &:not(:last-child)
+      margin-bottom: 16px
+
+
+  // $Question options
+  &__options
+    flex-grow: 0
+    flex-shrink: 1
+
+
+  // $Question option
+  &__option
+    display: block
+    width: 100%
+
+    &:not(:last-child)
+      margin-bottom: 20px
+
+      #{$block}_type_compact &
+        margin-bottom: 16px
+
+      +media-screen-min-xs
+        margin-bottom: 24px
+
+        #{$block}_type_compact &
+          margin-bottom: 20px
+
+
+  // $Question option input
+  &__option-input
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: center
+    cursor: pointer
+
+    & input
+      display: none
+
+
+  // $Question option input indicator
+  &__option-input-indicator
+    flex-grow: 0
+    flex-shrink: 0
+    position: relative
+    display: block
+
+    &:before
+      content: ""
+      box-sizing: border-box
+      display: block
+      width: 32px
+      height: 32px
+      background-color: $c-white
+      border: 1px solid $c-gray-extra-dark
+      border-radius: 50%
+
+      #{$block}_type_compact &
+        width: 24px
+        height: 24px
+
+      +media-screen-min-xs
+        width: 40px
+        height: 40px
+
+        #{$block}_type_compact &
+          width: 32px
+          height: 32px
+
+    &:after
+      content: ''
+      position: absolute
+      top: 50%
+      left: 50%
+      display: block
+      width: 20px
+      height: 20px
+      background-color: $c-gray-extra-dark
+      border-radius: 50%
+      visibility: hidden
+      transform: translate(-50%, -50%)
+
+      #{$block}_type_compact &
+        width: 16px
+        height: 16px
+
+      #{$block}_theme_christmas &
+        background-color: $c-christmas-red
+
+      #{$block}__option-input input:checked ~ &
+        visibility: visible
+
+      +media-screen-min-xs
+        width: 28px
+        height: 28px
+
+        #{$block}_type_compact &
+          width: 24px
+          height: 24px
+
+
+  // $Question input label
+  &__option-input-label
+    display: inline-block
+    padding-left: 12px
+    font-family: $f-sans
+    font-size: 20px
+    line-height: 1
+    font-weight: 400
+    letter-spacing: 1px
+    color: $c-gray-ultra-dark
+    user-select: none
+
+    // $Question option input label CONTEXT: $Question MOD: type compact
+    #{$block}_type_compact &
+      font-size: 16px
+
+    // $Question option input label CONTEXT: $Question MOD: theme christmas
+    #{$block}_theme_christmas &
+      font-family: $f-sans-quicksand
+
+    #{$block}__option-input input:checked ~ &
+      text-shadow: 1px 0 0 $c-gray-ultra-dark
+
+    +media-screen-min-xs
+      padding-left: 16px
+      font-size: 24px
+
+      #{$block}_type_compact &
+        padding-left: 12px
+        font-size: 20px

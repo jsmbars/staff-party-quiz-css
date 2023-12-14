@@ -1,0 +1,210 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Leaderboard
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".spq-leaderboard"
+
+#{$block}
+  display: flex
+  flex-direction: column
+  justify-content: flex-start
+  align-items: center
+  width: 100%
+  height: 100%
+  overflow: hidden
+
+  // $Leaderboard MOD: theme christmas
+  &_theme_christmas
+
+
+  // $Leaderboard header
+  &__header
+    flex-grow: 0
+    flex-shrink: 0
+    display: block
+    width: 100%
+    margin-bottom: 16px
+
+    +media-screen-min-xs
+      margin-bottom: 24px
+
+
+  // $Leaderboard image
+  &__image
+    display: block
+    width: 100%
+    max-width: 120px
+    margin: 0 auto
+
+    +media-screen-min-xs
+      max-width: 240px
+
+    @media screen and (max-height: 480px) and (orientation: landscape)
+      display: none
+
+    &:not(:last-child)
+      margin-bottom: 16px
+
+      +media-screen-min-xs
+        margin-bottom: 24px
+
+
+  // $Leaderboard title
+  &__title
+    display: block
+    width: 100%
+    font-family: $f-sans
+    font-size: 24px
+    line-height: 1.4
+    font-weight: 600
+    color: $c-gray-ultra-dark
+    text-align: center
+
+    // $Leaderboard title CONTEXT: $Leaderboard MOD: theme christmas
+    #{$block}_theme_christmas &
+      font-family: $f-sans-rumraisin
+      font-size: 32px
+      font-weight: 400
+
+    +media-screen-min-xs
+      font-size: 32px
+
+      #{$block}_theme_christmas &
+        font-size: 40px
+
+    &:not(:last-child)
+      margin-bottom: 16px
+
+
+  // $Leaderboard content
+  &__content
+    flex-grow: 1
+    flex-shrink: 1
+    display: block
+    width: 100%
+    height: 100%
+    overflow: hidden
+
+
+  // $Leaderboard scroll container
+  &__scroll
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: center
+    width: 100%
+    height: 100%
+    overflow-x: hidden
+    overflow-y: auto
+
+
+  // $Leaderboard list
+  &__list
+    display: block
+    width: auto
+    list-style: none
+
+    &:not(:last-child)
+      margin-bottom: 16px
+
+      +media-screen-min-xs
+        margin-bottom: 24px
+
+
+  // $Leaderboard item
+  &__item
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+    width: 100%
+
+    &:not(:last-child)
+      margin-bottom: 16px
+
+      +media-screen-min-xs
+        margin-bottom: 24px
+
+
+  // $Leaderboard number
+  &__number
+    flex-grow: 0
+    flex-shrink: 0
+    display: block
+    width: 24px
+    height: 20px
+    font-family: $f-sans
+    font-size: 20px
+    line-height: 1
+    font-weight: 600
+    color: $c-gray-extra-dark
+    text-align: center
+
+    // $Leaderboard number CONTEXT: $Leaderboard MOD: theme christmas
+    #{$block}_theme_christmas &
+      font-family: $f-sans-quicksand
+      font-weight: 700
+      color: $c-christmas-red
+
+    +media-screen-min-xs
+      font-size: 24px
+
+
+  // $Leaderboard icon
+  &__icon
+    flex-grow: 0
+    flex-shrink: 0
+    display: block
+    width: 24px
+    height: 24px
+
+    // $Leaderboard icon MOD: trophy gold
+    &_trophy-gold
+      &:before
+        content: '\e902'
+        display: inline-block
+        font-family: icons
+        font-size: 24px
+        line-height: 24px
+        color: $c-christmas-yellow
+
+
+  // $Leaderboard text
+  &__text
+    flex-grow: 1
+    flex-shrink: 1
+    display: block
+    width: 100%
+    padding-left: 8px
+    font-family: $f-sans
+    font-size: 16px
+    line-height: 1.2
+    font-weight: 400
+    color: $c-gray-ultra-dark
+
+    // $Leaderboard text CONTEXT: $Leaderboard MOD: theme christmas
+    #{$block}_theme_christmas &
+      font-family: $f-sans-quicksand
+      font-weight: 500
+
+    +media-screen-min-xs
+      font-size: 18px
+
+
+  // $Leaderboard text bold
+  &__text-bold
+    font-weight: 600
+
+    // $Leaderboard text bold CONTEXT: $Leaderboard MOD: theme christmas
+    #{$block}_theme_christmas &
+      font-weight: 700
