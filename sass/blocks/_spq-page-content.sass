@@ -32,17 +32,17 @@ $block: ".spq-page-content"
   // $Page content MOD: role question answer
   &_role_question-answer
 
-  // $Page content MOD: role pause
-  &_role_pause
+  // $Page content MOD: role round end calculating
+  &_role_round-end-calculating
 
   // $Page content MOD: role round end
   &_role_round-end
 
-  // $Page content MOD: role round end leaderboard
-  &_role_round-end-leaderboard
-
   // $Page content MOD: role quiz end
   &_role_quiz-end
+
+  // $Page content MOD: role quiz pause
+  &_role_quiz-pause
 
   // $Page content MOD: theme christmas
   &_theme_christmas
@@ -67,6 +67,14 @@ $block: ".spq-page-content"
       padding: 24px 20px
 
 
+  // $Page content scroll
+  &__scroll
+    display: block
+    width: 100%
+    overflow-x: hidden
+    overflow-y: auto
+
+
   // $Page content panel
   &__panel
     display: flex
@@ -88,14 +96,6 @@ $block: ".spq-page-content"
       background-size: auto 90%
 
 
-  // $Page content scroll container
-  &__scroll
-    display: block
-    width: 100%
-    overflow-x: hidden
-    overflow-y: auto
-
-
   // $Page content main
   &__main
     flex-grow: 1
@@ -108,13 +108,11 @@ $block: ".spq-page-content"
     height: 100%
     overflow: hidden
 
-    // $Page content main CONTEXT: $Page content panel
-    #{$block}__panel > &
-      padding: 12px
-
-    +media-screen-min-xs
-      #{$block}__panel >  &
-        padding: 16px
+    // $Page content main CONTEXT: $Page content MOD: role round end
+    // $Page content main CONTEXT: $Page content MOD: role quiz end
+    #{$block}_role_round-end &,
+    #{$block}_role_quiz-end &
+      justify-content: flex-start
 
 
   // $Page content aside
@@ -158,6 +156,25 @@ $block: ".spq-page-content"
       #{$block}_theme_christmas &
         background-color: mix($c-white, $c-christmas-red, 90%)
 
+    // $Page content area MOD: role header
+    &_role_header
+      flex-grow: 0
+      flex-shrink: 1
+
+    // $Page content area MOD: role general
+    &_role_general
+      display: flex
+      flex-direction: column
+      justify-content: flex-start
+      align-items: center
+      padding-left: 0
+      padding-right: 0
+      overflow: hidden
+
+      +media-screen-min-xs
+        padding-left: 0
+        padding-right: 0
+
     // $Page content area MOD: role timer
     &_role_timer
       background-color: $c-red-medium
@@ -167,3 +184,63 @@ $block: ".spq-page-content"
         background-color: $c-christmas-red
 
 
+  // $Page content area scroll
+  &__area-scroll
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: center
+    width: 100%
+    overflow-x: hidden
+    overflow-y: auto
+
+    #{$block}__panel &
+      padding-left: 12px
+      padding-right: 12px
+
+    +media-screen-min-xs
+      #{$block}__panel &
+        padding-left: 16px
+        padding-right: 16px
+
+
+  // $Page content area scroll container
+  &__area-container
+    width: auto
+    max-width: 100%
+
+    // $Page content main CONTEXT: $Page content MOD: role round end
+    // $Page content main CONTEXT: $Page content MOD: role quiz end
+    #{$block}_role_round-end &,
+    #{$block}_role_quiz-end &
+      width: 100%
+      max-width: 480px
+
+
+  // $Leaderboard title
+  &__title
+    display: block
+    width: 100%
+    font-family: $f-sans
+    font-size: 24px
+    line-height: 1
+    font-weight: 600
+    color: $c-gray-ultra-dark
+    text-align: center
+
+    // $Leaderboard title CONTEXT: $Leaderboard MOD: theme christmas
+    #{$block}_theme_christmas &
+      font-family: $f-sans-rumraisin
+      font-size: 32px
+      font-weight: 400
+
+    +media-screen-min-xs
+      font-size: 32px
+
+      #{$block}_theme_christmas &
+        font-size: 40px
+
+
+  &__tabs
+    display: block
+    width: 100%

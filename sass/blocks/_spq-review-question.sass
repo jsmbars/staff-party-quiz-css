@@ -1,0 +1,314 @@
+@import '../helpers/settings'
+@import '../helpers/mixins'
+
+////////////////////////////////////////
+// $Review question
+////////////////////////////////////////
+
+//////////////////////////////////////// Block variables
+
+
+//////////////////////////////////////// Block mixins and functions
+
+
+//////////////////////////////////////// Block styles
+$block: ".spq-review-question"
+
+#{$block}
+  display: block
+  width: 100%
+  padding: 8px
+  background-color: $c-white
+  border-bottom: 1px solid $c-gray-ultra-light
+  cursor: pointer
+  transition: all .4s
+
+  +media-screen-min-xs
+    padding: 16px
+
+  &:hover
+    background-color: $c-gray-extra-light
+    border-color: $c-gray-light
+
+  // $Review question STATE: expanded
+  &.is-expanded
+
+  // $Review question STATE: correct
+  &.is-correct
+    background-color: $c-green-hyper-light
+    border-color: $c-green-ultra-light
+
+    &:hover
+      background-color: $c-green-ultra-light
+      border-color: $c-green-extra-light
+
+  // $Review question STATE: incorrect
+  &.is-incorrect
+    background-color: $c-red-hyper-light
+    border-color: $c-red-ultra-light
+
+    &:hover
+      background-color: $c-red-ultra-light
+      border-color: $c-red-extra-light
+
+  // $Review question STATE: unanswered
+  &.is-unanswered
+    background-color: $c-gray-hyper-light
+    border-color: $c-gray-ultra-light
+
+    &:hover
+      background-color: $c-gray-ultra-light
+      border-color: $c-gray-extra-light
+
+  // $Review question MOD: role quiz end
+  &_role_quiz-end
+
+  // $Review question MOD: theme christmas
+  &_theme_christmas
+
+  // $Review question MOD: theme christmas STATE: correct
+  &_theme_christmas.is-correct
+    background-color: mix($c-white, $c-christmas-green, 90%)
+    border-color: mix($c-white, $c-christmas-green, 80%)
+
+    &:hover
+      background-color: mix($c-white, $c-christmas-green, 80%)
+      border-color: mix($c-white, $c-christmas-green, 60%)
+
+  // $Review question MOD: theme christmas STATE: incorrect
+  &_theme_christmas.is-incorrect
+    background-color: mix($c-white, $c-christmas-red, 90%)
+    border-color: mix($c-white, $c-christmas-red, 80%)
+
+    &:hover
+      background-color: mix($c-white, $c-christmas-red, 80%)
+      border-color: mix($c-white, $c-christmas-red, 60%)
+
+
+  // $Review question header
+  &__header
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    align-items: flex-start
+    width: 100%
+
+
+  // $Review question number
+  &__number
+    flex-grow: 0
+    flex-shrink: 0
+    display: block
+    width: 16px
+    height: 16px
+    margin-top: 2px
+    font-family: $f-sans
+    font-size: 12px
+    line-height: 16px
+    font-weight: 600
+    text-align: center
+    color: $c-white
+    border-radius: 50%
+    background-color: $c-gray-light
+    overflow: hidden
+
+    // $Review question number CONTEXT: $Review question STATE: correct
+    #{$block}.is-correct &
+      background-color: $c-green-dark
+
+    // $Review question number CONTEXT: $Review question STATE: incorrect
+    #{$block}.is-incorrect &
+      background-color: $c-red-dark
+
+    // $Review question number CONTEXT: $Review question STATE: unanswered
+    #{$block}.is-unanswered &
+      background-color: $c-gray-dark
+
+    // $Review question number CONTEXT: $Review question MOD: theme christmas
+    #{$block}_theme_christmas &
+      font-family: $f-sans-quicksand
+      font-weight: 700
+
+    // $Review question number CONTEXT: $Review question MOD: theme christmas STATE: correct
+    #{$block}_theme_christmas.is-correct &
+      background-color: $c-christmas-green
+
+    // $Review question number CONTEXT: $Review question MOD: theme christmas STATE: incorrect
+    #{$block}_theme_christmas.is-incorrect &
+      background-color: $c-christmas-red
+
+    +media-screen-min-xs
+      width: 20px
+      height: 20px
+      margin-top: 1px
+      font-size: 14px
+      line-height: 20px
+
+
+  // $Review question info
+  &__info
+    flex-grow: 1
+    flex-shrink: 1
+    display: block
+    width: 100%
+    padding-left: 8px
+
+    +media-screen-min-xs
+      padding-left: 12px
+
+
+  // $Review question image
+  &__image
+    display: block
+    width: auto
+    max-width: 100%
+
+    &:not(:last-child)
+      margin-bottom: 8px
+
+      +media-screen-min-xs
+        margin-bottom: 16px
+
+
+  // $Review question title
+  &__title
+    display: block
+    width: 100%
+    max-width: 100%
+    font-family: $f-sans
+    font-size: 16px
+    line-height: 1.2
+    font-weight: 400
+    text-align: left
+    color: $c-gray-ultra-dark
+
+    // $Review question title CONTEXT: $Review question MOD: theme christmas
+    #{$block}_theme_christmas &
+      font-family: $f-sans-quicksand
+      font-weight: 500
+
+    +media-screen-min-xs
+      font-size: 18px
+
+
+  // $Review question content
+  &__content
+    display: none
+    width: 100%
+    padding: 12px 0 0 24px
+
+    // $Review question content CONTEXT: $Review question STATE: expanded
+    #{$block}.is-expanded &
+      display: block
+
+    +media-screen-min-xs
+      padding: 16px 0 0 32px
+
+
+  // $Review question answers
+  &__answers
+    display: block
+    width: 100%
+    list-style: none
+
+
+  // $Review question answer
+  &__answer
+    display: flex
+    flex-direction: row
+    justify-content: flex-start
+    width: 100%
+
+    &:not(:last-child)
+      margin-bottom: 8px
+
+      +media-screen-min-xs
+        margin-bottom: 12px
+
+
+  // $Review question answer indicator
+  &__answer-indicator
+    flex-grow: 0
+    flex-shrink: 0
+    display: flex
+    flex-direction: row
+    justify-content: center
+    align-items: center
+    width: 16px
+    height: 16px
+    margin-top: 2px
+    font-size: 0
+    line-height: 0
+    font-weight: 600
+    text-align: center
+    color: transparent
+    border: 1px solid $c-gray-dark
+    border-radius: 50%
+    background-color: transparent
+    overflow: hidden
+
+    +media-screen-min-xs
+      width: 20px
+      height: 20px
+      margin-top: 1px
+
+    &:before
+      flex-grow: 0
+      flex-shrink: 0
+      content: ''
+      display: block
+      width: 10px
+      height: 10px
+      border-radius: 50%
+
+      #{$block}__answer.is-selected &
+        background-color: $c-red-dark
+
+      #{$block}__answer.is-correct &,
+      #{$block}__answer.is-selected.is-correct &
+        background-color: $c-green-dark
+
+      #{$block}_theme_christmas #{$block}__answer.is-selected &
+        background-color: $c-christmas-red
+
+      #{$block}_theme_christmas #{$block}__answer.is-correct &,
+      #{$block}_theme_christmas #{$block}__answer.is-selected.is-correct &
+        background-color: $c-christmas-green
+
+      +media-screen-min-xs
+        width: 14px
+        height: 14px
+
+
+  // $Review question answer text
+  &__answer-text
+    flex-grow: 1
+    flex-shrink: 1
+    display: block
+    width: 100%
+    max-width: 100%
+    padding-left: 8px
+    font-family: $f-sans
+    font-size: 16px
+    line-height: 1.2
+    font-weight: 400
+    text-align: left
+    color: $c-gray-ultra-dark
+
+
+    // $Review question answer text CONTEXT: $Review question answer STATE: selected
+    #{$block}__answer.is-selected &
+      font-weight: 600
+
+    // $Review question answer text CONTEXT: $Review question MOD: theme christmas
+    #{$block}_theme_christmas &
+      font-family: $f-sans-quicksand
+      font-weight: 500
+
+    // $Review question answer text CONTEXT: $Review question MOD: theme christmas $Review question answer STATE: selected
+    #{$block}_theme_christmas #{$block}__answer.is-selected &
+      font-weight: 700
+
+    +media-screen-min-xs
+      padding-left: 12px
+      font-size: 18px
