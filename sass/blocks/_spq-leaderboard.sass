@@ -15,103 +15,23 @@
 $block: ".spq-leaderboard"
 
 #{$block}
-  display: flex
-  flex-direction: column
-  justify-content: flex-start
-  align-items: center
+  display: block
   width: 100%
-  height: 100%
-  overflow: hidden
+
+  // $Leaderboard MOD: role round end
+  &_role_round-end
+
+  // $Leaderboard MOD: role quiz end
+  &_role_quiz-end
 
   // $Leaderboard MOD: theme christmas
   &_theme_christmas
 
 
-  // $Leaderboard header
-  &__header
-    flex-grow: 0
-    flex-shrink: 0
-    display: block
-    width: 100%
-    margin-bottom: 16px
-
-    +media-screen-min-xs
-      margin-bottom: 24px
-
-
-  // $Leaderboard image
-  &__image
-    display: block
-    width: 100%
-    max-width: 120px
-    margin: 0 auto
-
-    +media-screen-min-xs
-      max-width: 240px
-
-    @media screen and (max-height: 480px) and (orientation: landscape)
-      display: none
-
-    &:not(:last-child)
-      margin-bottom: 16px
-
-      +media-screen-min-xs
-        margin-bottom: 24px
-
-
-  // $Leaderboard title
-  &__title
-    display: block
-    width: 100%
-    font-family: $f-sans
-    font-size: 24px
-    line-height: 1.4
-    font-weight: 600
-    color: $c-gray-ultra-dark
-    text-align: center
-
-    // $Leaderboard title CONTEXT: $Leaderboard MOD: theme christmas
-    #{$block}_theme_christmas &
-      font-family: $f-sans-rumraisin
-      font-size: 32px
-      font-weight: 400
-
-    +media-screen-min-xs
-      font-size: 32px
-
-      #{$block}_theme_christmas &
-        font-size: 40px
-
-    &:not(:last-child)
-      margin-bottom: 16px
-
-
-  // $Leaderboard content
-  &__content
-    flex-grow: 1
-    flex-shrink: 1
-    display: block
-    width: 100%
-    height: 100%
-    overflow: hidden
-
-
-  // $Leaderboard scroll container
-  &__scroll
-    display: flex
-    flex-direction: column
-    justify-content: flex-start
-    align-items: center
-    width: 100%
-    height: 100%
-    overflow-x: hidden
-    overflow-y: auto
-
-
   // $Leaderboard list
   &__list
     display: block
-    width: auto
+    width: 100%
     list-style: none
 
     &:not(:last-child)
@@ -130,53 +50,10 @@ $block: ".spq-leaderboard"
     width: 100%
 
     &:not(:last-child)
-      margin-bottom: 16px
+      margin-bottom: 8px
 
       +media-screen-min-xs
-        margin-bottom: 24px
-
-
-  // $Leaderboard number
-  &__number
-    flex-grow: 0
-    flex-shrink: 0
-    display: block
-    width: 24px
-    height: 20px
-    font-family: $f-sans
-    font-size: 20px
-    line-height: 1
-    font-weight: 600
-    color: $c-gray-extra-dark
-    text-align: center
-
-    // $Leaderboard number CONTEXT: $Leaderboard MOD: theme christmas
-    #{$block}_theme_christmas &
-      font-family: $f-sans-quicksand
-      font-weight: 700
-      color: $c-christmas-red
-
-    +media-screen-min-xs
-      font-size: 24px
-
-
-  // $Leaderboard icon
-  &__icon
-    flex-grow: 0
-    flex-shrink: 0
-    display: block
-    width: 24px
-    height: 24px
-
-    // $Leaderboard icon MOD: trophy gold
-    &_trophy-gold
-      &:before
-        content: '\e902'
-        display: inline-block
-        font-family: icons
-        font-size: 24px
-        line-height: 24px
-        color: $c-christmas-yellow
+        margin-bottom: 16px
 
 
   // $Leaderboard text
@@ -185,7 +62,7 @@ $block: ".spq-leaderboard"
     flex-shrink: 1
     display: block
     width: 100%
-    padding-left: 8px
+    padding-right: 8px
     font-family: $f-sans
     font-size: 16px
     line-height: 1.2
@@ -201,10 +78,25 @@ $block: ".spq-leaderboard"
       font-size: 18px
 
 
-  // $Leaderboard text bold
-  &__text-bold
+  // $Leaderboard number
+  &__number
+    flex-grow: 0
+    flex-shrink: 0
+    display: block
+    width: 60px
+    font-family: $f-sans
+    font-size: 16px
+    line-height: 1
     font-weight: 600
+    color: $c-gray-extra-dark
+    text-align: right
 
-    // $Leaderboard text bold CONTEXT: $Leaderboard MOD: theme christmas
+    // $Leaderboard number CONTEXT: $Leaderboard MOD: theme christmas
     #{$block}_theme_christmas &
+      width: 48px
+      font-family: $f-sans-quicksand
       font-weight: 700
+      color: $c-christmas-red
+
+    +media-screen-min-xs
+      font-size: 18px
